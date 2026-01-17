@@ -1,0 +1,114 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>St. Charles Lwanga Registration Portal</title>
+
+<style>
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #6ee7cf, #8bdad1, #f1b5b0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* MAIN CONTAINER */
+.container{
+    width: 95%;
+    max-width: 1200px;
+    display: flex;
+    gap: 40px;
+}
+
+/* LEFT TEXT */
+.left{
+    flex: 1;
+    color: white;
+}
+
+.left h1{
+    font-size: 90px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    line-height: 1.2;
+    
+}
+
+/* RIGHT ICONS */
+.right{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-end;
+}
+
+/* ICON IMAGES */
+.right a img{
+    width: 360px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* MOBILE */
+@media(max-width: 900px){
+    .container{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .left h1{
+        font-size: 42px;
+    }
+
+    .right{
+        align-items: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT TEXT -->
+    <div class="left">
+        <h1>
+            ST.CHARLES<br>
+            LWANGA<br>
+            REGISTRATION<br>
+            PORTAL
+        </h1>
+    </div>
+
+    <!-- RIGHT ICON IMAGES -->
+    <div class="right">
+
+        <!-- YOUTH REGISTRATION ICON -->
+        <a href="youth-registration.html">
+            <img src="images/Screenshot (80).png" alt="Youth Registration">
+        </a>
+
+        <!-- NIGHT VIGIL REGISTRATION ICON -->
+        <a href="https://augustine59-wangombe.github.io/Night-Vigil-Online-Registration-Youth-System/">
+            <img src="images/Picture1.png" alt="Night Vigil Registration">
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
