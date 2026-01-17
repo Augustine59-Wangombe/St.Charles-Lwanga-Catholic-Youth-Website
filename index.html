@@ -32,17 +32,23 @@ html, body {
 }
 
 /* ================= WRAPPER ================= */
+/* ===== DESKTOP ===== */
 .wrapper {
     width: 1400px;
-    margin: auto;
-    transform-origin: top center;
+    margin: 0 auto;
 }
+
+/* ===== MOBILE (Google + Chrome) ===== */
 @media (max-width: 900px) {
-    .wrapper{
-        transform: scale(0.27);
+    body {
+        overflow-x: hidden;
     }
-    body{
-        overflow-x:hidden;
+
+    .wrapper {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%) scale(0.27);
+        transform-origin: top center;
     }
 }
 /* ================= TITLE ================= */
@@ -236,6 +242,7 @@ our youth<br>members<br>engage in<br>church<br>activities and<br>grow in faith.
 </div>
 </body>
 </html>
+
 
 
 
