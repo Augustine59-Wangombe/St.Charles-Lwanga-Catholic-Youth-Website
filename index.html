@@ -125,18 +125,28 @@ html, body {
     top: -5px;
     right: -25px;
     width: 420px;
-    z-index: 10;
+    z-index: 9000;
     pointer-events: none;
+    transform: translateZ(0);
+    will-change: transform;
+
 }
 .lwanga img { width: 100%; }
 
 /* ================= HOME ICON ================= */
 .home-float {
+    
     position: absolute;
     top: 8px;
     right: 420px;
     width: 120px;
-    z-index: 20;
+    pointer-events: auto;
+    isolation: isolate;
+    contain: paint;
+    backface-visibility: hidden;
+
+}
+
 }
 .home-float img { width: 100%; }
 
@@ -150,6 +160,14 @@ html, body {
     display: block;
     margin: 0 auto;
 }
+    @supports (-webkit-touch-callout: none) {
+    .lwanga img,
+    .home-float img {
+        image-rendering: auto;
+        backface-visibility: hidden;
+    }
+}
+
 </style>
 </head>
 
@@ -185,4 +203,5 @@ our youth<br>members<br>engage in<br>church<br>activities and<br>grow in faith.
 </div>
 </body>
 </html>
+
 
