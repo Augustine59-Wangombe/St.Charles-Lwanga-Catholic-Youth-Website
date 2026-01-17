@@ -233,7 +233,8 @@ our youth<br>members<br>engage in<br>church<br>activities and<br>grow in faith.
 
 
 
-    <script>
+    
+<script>
 (function () {
   var ua = navigator.userAgent || navigator.vendor || window.opera;
 
@@ -244,18 +245,33 @@ our youth<br>members<br>engage in<br>church<br>activities and<br>grow in faith.
     (ua.includes("wv") && !ua.includes("Chrome"));
 
   if (isGoogleApp && window.innerWidth <= 900) {
+    // Select wrapper
     var wrapper = document.querySelector(".wrapper");
     if (wrapper) {
       wrapper.style.position = "relative";
       wrapper.style.left = "50%";
-      wrapper.style.transform = "translateX(-50%) scale(0.22)";
+      wrapper.style.transform = "translateX(-50%) scale(0.18)"; // smaller scale
       wrapper.style.transformOrigin = "top center";
       document.body.style.overflowX = "hidden";
     }
+
+    // Adjust icons to prevent overlap
+    var icons = document.querySelector(".icons");
+    if (icons) {
+      icons.style.top = "850px";      // move icons lower
+      icons.style.width = "500px";    // optional: scale width
+      icons.style.gridAutoRows = "300px"; // optional: make grid smaller
+    }
+
+    // Adjust text if needed
+    var text = document.querySelector(".text");
+    if (text) {
+      text.style.top = "100px";       // move text slightly lower
+      text.style.width = "280px";     // optional: shrink text container
+    }
   }
 })();
-    </script>
-
+</script>
 
 
 
@@ -264,6 +280,7 @@ our youth<br>members<br>engage in<br>church<br>activities and<br>grow in faith.
     
 </body>
 </html>
+
 
 
 
