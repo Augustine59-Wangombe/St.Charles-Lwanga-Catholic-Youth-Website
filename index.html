@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=1400, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=1400, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
 
 
 
@@ -125,7 +126,7 @@ html, body {
     top: -5px;
     right: -25px;
     width: 420px;
-    z-index: 9000;
+    z-index: 10;
     pointer-events: none;
     transform: translateZ(0);
     will-change: transform;
@@ -144,6 +145,9 @@ html, body {
     isolation: isolate;
     contain: paint;
     backface-visibility: hidden;
+    opacity: 1;
+    visibility: visible;
+
 
 
 
@@ -167,6 +171,27 @@ html, body {
         backface-visibility: hidden;
     }
 }
+    /* ===== GOOGLE APP STABILITY FIX ===== */
+@media (max-width: 900px) {
+
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  .right {
+    transform: translateZ(0);
+  }
+
+  .home-float,
+  .lwanga,
+  .icons {
+    transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+    position: absolute;
+  }
+}
+
 
 </style>
 </head>
@@ -203,6 +228,7 @@ our youth<br>members<br>engage in<br>church<br>activities and<br>grow in faith.
 </div>
 </body>
 </html>
+
 
 
 
