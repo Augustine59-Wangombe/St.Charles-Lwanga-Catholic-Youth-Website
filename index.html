@@ -3,21 +3,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0"
-
-
-
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="Zn5SE5OY2a8pjlxWB5DXE9zfUo5QjgPcYT4Rn33jnB4" />
 <meta name="author" content="Augustine Wangombe">
 <title>St.Charles Lwanga Catholic Youth</title>
 
 <style>
 /* ================= BASE ================= */
-html, body {
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
     font-family: "Times New Roman", serif;
     background: linear-gradient(
         270deg,
@@ -28,18 +27,16 @@ html, body {
         #5DD6BE 75%,
         #9DC3E6 100%
     );
-    background-attachment: fixed;
+    min-height: 100vh;
 }
 
 /* ================= WRAPPER ================= */
-/* ===== DESKTOP ===== */
 .wrapper {
-    width: 1400px;
+    max-width: 1400px;
+    width: 100%;
     margin: 0 auto;
+    padding: 0 15px;
 }
-
-/* ===== MOBILE (Google + Chrome) ===== */
-/* ===== MOBILE: GOOGLE + CHROME FINAL FIX ===== */
 
 /* ================= TITLE ================= */
 .title1 {
@@ -54,28 +51,37 @@ html, body {
 /* ================= MAIN ================= */
 .main {
     display: flex;
-    height: calc(100vh - 120px);
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
 }
 
 /* ================= LEFT ================= */
 .left {
-    width: 45%;
-    padding: 20px;
+    flex: 1 1 45%;
 }
 .left img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     border-radius: 6px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.45);
 }
 
 /* ================= RIGHT ================= */
 .right {
-    width: 55%;
-    position: relative;
-    padding: 30px 20px;
+    flex: 1 1 55%;
     color: white;
+    position: relative;
+    padding: 10px;
+}
+
+/* ================= TOP IMAGE ================= */
+.img1 {
+    width: 100%;
+    max-width: 1400px;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
 }
 
 /* ================= TEXT ================= */
@@ -83,39 +89,25 @@ html, body {
     font-size: 42px;
     font-weight: 800;
     line-height: 1.25;
-    width: 310px;
     color: white;
-    top: 80px;
-    margin-left: -20px;
+    margin: 20px 0;
 }
 
 /* ================= ICON GRID ================= */
 .icons {
-    position: absolute;
-    top: 750px;
-    right: 160px;
-    width: 600px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 350px;
-    gap: 45px;
-    justify-items: center;
-    align-items: center;
-    z-index: 5;
+    gap: 20px;
+    margin-top: 20px;
 }
-
 .icon {
     background: white;
     border-radius: 26px;
     padding: 20px;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow: 0 8px 14px rgba(0,0,0,0.35);
-    overflow: hidden;
 }
 .icon img {
     max-width: 100%;
@@ -132,161 +124,95 @@ html, body {
     width: 420px;
     z-index: 10;
     pointer-events: none;
-    transform: translateZ(0);
-    will-change: transform;
-
 }
 .lwanga img { width: 100%; }
 
 /* ================= HOME ICON ================= */
 .home-float {
-    
     position: absolute;
     top: 8px;
     right: 420px;
     width: 120px;
-    pointer-events: auto;
-    isolation: isolate;
-    contain: paint;
-    backface-visibility: hidden;
-    opacity: 1;
-    visibility: visible;
-
-
-
-
 }
 .home-float img { width: 100%; }
 
-/* ================= TOP IMAGE ================= */
-.img1 {
-    width: 110%;
-    height: auto;
-    max-width: 1400px;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-}
-    @supports (-webkit-touch-callout: none) {
-    .lwanga img,
-    .home-float img {
-        image-rendering: auto;
-        backface-visibility: hidden;
-    }
-}
-    /* ===== GOOGLE APP STABILITY FIX ===== */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 900px) {
 
-  body {
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-  }
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .right {
-    transform: translateZ(0);
-  }
+    .left, .right {
+        flex: 1 1 100%;
+    }
 
-  .home-float,
-  .lwanga,
-  .icons {
-    transform: translate3d(0,0,0);
-    backface-visibility: hidden;
-    position: absolute;
-  }
+    .text {
+        font-size: 28px;
+        text-align: center;
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .icons {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 200px;
+        width: 90%;
+        margin: 20px auto;
+    }
+
+    .home-float {
+        top: 10px;
+        right: 10px;
+        width: 80px;
+    }
+
+    .lwanga {
+        width: 250px;
+        top: -20px;
+        right: -10px;
+    }
+
+    .title1 {
+        font-size: 32px;
+        padding: 15px 10px;
+    }
 }
-
-
 </style>
 </head>
-
 <body>
+
 <div class="wrapper">
 
-<div class="title1">WELCOME TO ST.CHARLES LWANGA CATHOLIC YOUTH</div>
+    <div class="title1">WELCOME TO ST.CHARLES LWANGA CATHOLIC YOUTH</div>
 
-<img class="img1" src="images/Screenshot (88).png" alt="St.Charles Lwanga Youth">
+    <img class="img1" src="images/Screenshot (88).png" alt="St.Charles Lwanga Youth">
 
-<div class="main">
-<div class="left">
-    <img src="images/photo.jpg" alt="Youth Photo">
+    <div class="main">
+        <div class="left">
+            <img src="images/photo.jpg" alt="Youth Photo">
+        </div>
+
+        <div class="right">
+            <div class="lwanga"><img src="images/st.-charles-lwanga.png"></div>
+            <div class="home-float"><img src="images/home.png"></div>
+
+            <div class="text">
+                St.Charles<br>Lwanga<br>Catholic Youth<br>Website, where<br>
+                our youth<br>members<br>engage in<br>church<br>activities and<br>grow in faith.
+            </div>
+
+            <div class="icons">
+                <a href="contact.html" class="icon"><img src="images/calendar.jpg"></a>
+                <a href="events.html" class="icon"><img src="images/upcomingevents.jpg"></a>
+                <a href="registrationportal.html" class="icon"><img src="images/registration1.jpg"></a>
+                <a href="Carlo.html" class="icon"><img src="images/Carlo.png"></a>
+            </div>
+        </div>
+    </div>
+
 </div>
 
-<div class="right">
-<div class="lwanga"><img src="images/st.-charles-lwanga.png"></div>
-<div class="home-float"><img src="images/home.png"></div>
-
-<div class="text">
-St.Charles<br>Lwanga<br>Catholic Youth<br>Website, where<br>
-our youth<br>members<br>engage in<br>church<br>activities and<br>grow in faith.
-</div>
-
-<div class="icons">
-<a href="contact.html" class="icon"><img src="images/calendar.jpg"></a>
-<a href="events.html" class="icon"><img src="images/upcomingevents.jpg"></a>
-<a href="registrationportal.html" class="icon"><img src="images/registration1.jpg"></a>
-<a href="Carlo.html" class="icon"><img src="images/Carlo.png"></a>
-</div>
-</div>
-</div>
-</div>
-
-
-
-    
-<script>
-(function () {
-  var ua = navigator.userAgent || navigator.vendor || window.opera;
-
-  // Detect Google App (not Chrome)
-  var isGoogleApp =
-    ua.includes("GSA") ||               // Google Search App
-    ua.includes("GoogleApp") ||
-    (ua.includes("wv") && !ua.includes("Chrome"));
-
-  if (isGoogleApp && window.innerWidth <= 900) {
-    // Select wrapper
-    var wrapper = document.querySelector(".wrapper");
-    if (wrapper) {
-      wrapper.style.position = "relative";
-      wrapper.style.left = "50%";
-      wrapper.style.transform = "translateX(-50%) scale(0.18)"; // smaller scale
-      wrapper.style.transformOrigin = "top center";
-      document.body.style.overflowX = "hidden";
-    }
-
-    // Adjust icons to prevent overlap
-    var icons = document.querySelector(".icons");
-    if (icons) {
-      icons.style.top = "850px";      // move icons lower
-      icons.style.width = "500px";    // optional: scale width
-      icons.style.gridAutoRows = "300px"; // optional: make grid smaller
-    }
-
-    // Adjust text if needed
-    var text = document.querySelector(".text");
-    if (text) {
-      text.style.top = "100px";       // move text slightly lower
-      text.style.width = "280px";     // optional: shrink text container
-    }
-  }
-})();
-</script>
-
-
-
-
-
-    
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
