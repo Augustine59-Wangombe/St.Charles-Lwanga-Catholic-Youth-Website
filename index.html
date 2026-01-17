@@ -166,7 +166,33 @@ img{
     width:110%;
     height:auto;
     max-width:1430px;
+        
 }
+    @media (max-width: 768px){
+
+    .main{
+        flex-direction:column;
+    }
+
+    .left,
+    .right{
+        width:100%;
+    }
+
+    .text{
+        font-size:24px;
+        width:auto;
+        margin-left:0;
+        text-align:center;
+    }
+
+    .icons{
+        position:static;
+        width:100%;
+        grid-auto-rows:180px;
+        margin-top:30px;
+    }
+    }
 </style>
 </head>
 
@@ -239,6 +265,7 @@ img{
 
 </body>
 </html>
+
 
 
 
