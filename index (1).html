@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="Zn5SE5OY2a8pjlxWB5DXE9zfUo5QjgPcYT4Rn33jnB4" />
+    <meta name="author" content="Augustine Wangombe">
+    <title>St.Charles Lwanga Catholic Youth</title>
+
+    <style>
+        /* ================= BASE ================= */
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: "Times New Roman", serif;
+            background: linear-gradient(
+                270deg,
+                #B4C7E7 0%,
+                #9FBAAB 21%,
+                #7BC0AC 30%,
+                #609ED6 48%,
+                #5DD6BE 75%,
+                #9DC3E6 100%
+            );
+            background-attachment: fixed;
+        }
+
+        /* ================= WRAPPER ================= */
+        .wrapper {
+            width: 1400px;
+            margin: auto;
+        }
+
+        /* ================= TITLE ================= */
+        .title1 {
+            text-align: center;
+            font-size: 44px;
+            font-weight: 900;
+            padding: 25px 10px;
+            letter-spacing: 1px;
+            color: white;
+        }
+
+        /* ================= MAIN ================= */
+        .main {
+            display: flex;
+            height: calc(100vh - 120px);
+        }
+
+        /* ================= LEFT ================= */
+        .left {
+            width: 45%;
+            padding: 20px;
+        }
+
+        .left img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.45);
+        }
+
+        /* ================= RIGHT ================= */
+        .right {
+            width: 55%;
+            position: relative;
+            padding: 30px 20px;
+            color: white;
+        }
+
+        /* ================= TEXT ================= */
+        .text {
+            font-size: 42px;
+            font-weight: 800;
+            line-height: 1.25;
+            width: 310px;
+            color: white;
+            top: 80px;
+            margin-left: -20px;
+        }
+
+        /* ================= ICON GRID ================= */
+        .icons {
+            position: absolute;
+            top: 750px;
+            right: 160px;
+            width: 600px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 350px;
+            gap: 45px;
+            justify-items: center;
+            align-items: center;
+            z-index: 5;
+        }
+
+        .icon {
+            background: white;
+            border-radius: 26px;
+            padding: 20px;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 14px rgba(0,0,0,0.35);
+            overflow: hidden;
+        }
+
+        .icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transform: scale(1.16);
+        }
+
+        /* ================= BUBBLES ================= */
+        .lwanga {
+            position: absolute;
+            top: -5px;
+            right: -25px;
+            width: 420px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .lwanga img {
+            width: 100%;
+        }
+
+        /* ================= HOME ICON ================= */
+        .home-float {
+            position: absolute;
+            top: 8px;
+            right: 420px;
+            width: 120px;
+            z-index: 20;
+        }
+
+        .home-float img {
+            width: 100%;
+        }
+
+        /* ================= MOBILE = EXACT DESKTOP ================= */
+        @media (max-width: 900px) {
+            html, body {
+                width: 1400px;
+                overflow-x: auto;
+            }
+            body {
+                transform: scale(0.28);
+                transform-origin: top left;
+            }
+        }
+
+        .img1 {
+            width: 110%;
+            height: auto;
+            max-width: 1430px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <div class="title1">
+            WELCOME TO ST.CHARLES LWANGA CATHOLIC YOUTH
+        </div>
+
+        <img class="img1" src="images/Screenshot (88).png" alt="St.Charles Lwanga Youth">
+
+        <div class="main">
+
+            <div class="left">
+                <img src="images/photo.jpg" alt="Youth Photo">
+            </div>
+
+            <div class="right">
+
+                <div class="lwanga">
+                    <img src="images/st.-charles-lwanga.png" alt="St.Charles Lwanga image">
+                </div>
+
+                <div class="home-float">
+                    <img src="images/home.png" alt="Home">
+                </div>
+
+                <div class="text">
+                    St.Charles<br>
+                    Lwanga<br>
+                    Catholic Youth<br>
+                    Website, where<br>
+                    our youth<br>
+                    members<br>
+                    engage in<br>
+                    church<br>
+                    activities and<br>
+                    grow in faith.
+                </div>
+
+                <div class="icons">
+                    <a href="contact.html" class="icon">
+                        <img src="images/calendar.jpg" alt="Calendar">
+                    </a>
+                    <a href="events.html" class="icon">
+                        <img src="images/upcomingevents.jpg" alt="Events">
+                    </a>
+                    <a href="register.html" class="icon">
+                        <img src="images/registration1.jpg" alt="Register">
+                    </a>
+                    <a href="Carlo.html" class="icon">
+                        <img src="images/Carlo.png" alt="Saint Carlo Acutis">
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
