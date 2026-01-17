@@ -25,12 +25,19 @@ html, body{
         
 );
 background-attachment: fixed;
-    
 }
 
+img{
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+
+    
 /* ================= WRAPPER ================= */
 .wrapper{
-    width:1400px;
+    max-width:1400px;
+    width:100%
     margin:auto;
 }
 
@@ -47,7 +54,8 @@ background-attachment: fixed;
 /* ================= MAIN ================= */
 .main{
     display:flex;
-    height:calc(100vh - 120px);
+    min-height:auto;
+    flex-wrap:wrap;
 }
 
 /* ================= LEFT ================= */
@@ -151,19 +159,6 @@ background-attachment: fixed;
     width:100%;
 }
 
-/* ================= MOBILE = EXACT DESKTOP ================= */
-@media (max-width: 900px){
-
-    html, body{
-        width:1400px;
-        overflow-x:auto;
-    }
-
-    body{
-        transform:scale(0.28);
-        transform-origin:top left;
-    }
-}
 
 
     .img1{
@@ -244,6 +239,7 @@ background-attachment: fixed;
 
 </body>
 </html>
+
 
 
 
