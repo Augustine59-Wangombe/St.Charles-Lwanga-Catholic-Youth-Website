@@ -40,18 +40,7 @@ html, body {
 
 /* ===== MOBILE (Google + Chrome) ===== */
 /* ===== MOBILE: GOOGLE + CHROME FINAL FIX ===== */
-@media (max-width: 900px) {
-    body {
-        overflow-x: hidden;
-    }
 
-    .wrapper {
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%) scale(0.22);
-        transform-origin: top center;
-    }
-}
 /* ================= TITLE ================= */
 .title1 {
     text-align: center;
@@ -241,8 +230,41 @@ our youth<br>members<br>engage in<br>church<br>activities and<br>grow in faith.
 </div>
 </div>
 </div>
+
+
+
+    <script>
+(function () {
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+
+  // Detect Google App (not Chrome)
+  var isGoogleApp =
+    ua.includes("GSA") ||               // Google Search App
+    ua.includes("GoogleApp") ||
+    (ua.includes("wv") && !ua.includes("Chrome"));
+
+  if (isGoogleApp && window.innerWidth <= 900) {
+    var wrapper = document.querySelector(".wrapper");
+    if (wrapper) {
+      wrapper.style.position = "relative";
+      wrapper.style.left = "50%";
+      wrapper.style.transform = "translateX(-50%) scale(0.22)";
+      wrapper.style.transformOrigin = "top center";
+      document.body.style.overflowX = "hidden";
+    }
+  }
+})();
+    </script>
+
+
+
+
+
+
+    
 </body>
 </html>
+
 
 
 
