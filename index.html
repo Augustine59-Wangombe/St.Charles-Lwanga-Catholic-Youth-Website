@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Force mobile browsers to respect fixed layout -->
+    <meta name="viewport" content="width=1400, initial-scale=1.0">
     <meta name="google-site-verification" content="Zn5SE5OY2a8pjlxWB5DXE9zfUo5QjgPcYT4Rn33jnB4" />
     <meta name="author" content="Augustine Wangombe">
     <title>St.Charles Lwanga Catholic Youth</title>
@@ -23,11 +24,9 @@
                 #5DD6BE 75%,
                 #9DC3E6 100%
             );
-            @media (max-width: 900px){
-                body{
-                    background-attachment: scroll;
+            background-attachment: fixed;
         }
-            }
+
         /* ================= WRAPPER ================= */
         .wrapper {
             width: 1400px;
@@ -58,7 +57,7 @@
 
         .left img {
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: cover;
             border-radius: 6px;
             box-shadow: 0 6px 15px rgba(0,0,0,0.45);
@@ -146,44 +145,21 @@
             width: 100%;
         }
 
-        /* ================= MOBILE = EXACT DESKTOP ================= */
+        /* ================= TOP IMAGE ================= */
+        .img1 {
+            width: 110%;
+            height: auto;
+            max-width: 1430px;
+        }
+
+        /* ================= MOBILE = SAME LAYOUT ================= */
+        /* No scaling, exact desktop layout on mobile */
+        /* Users can scroll horizontally if needed */
         @media (max-width: 900px) {
             html, body {
                 width: 1400px;
                 overflow-x: auto;
             }
-            body {
-                transform: scale(0.28);
-                transform-origin: top left;
-            }
-                .lwanga,
-    .home-float {
-        position: static;     /* stop floating */
-        display: block;
-        margin: 10px auto;
-        text-align: center;
-    }
-
-    .lwanga {
-        width: 200px;
-    }
-
-    .home-float {
-        width: 70px;
-    }
-
-        }
-
-        .img1 {
-            width: 110%;
-            height: auto;
-            max-width: 1430px;
-        
-        }
-        img{
-            max-width:100%;
-            display:block;
-        }
         }
     </style>
 </head>
@@ -249,6 +225,3 @@
 
 </body>
 </html>
-
-
-
