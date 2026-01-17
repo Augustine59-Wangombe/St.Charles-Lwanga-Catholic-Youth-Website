@@ -3,8 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- Force mobile browsers to respect fixed layout -->
-    <meta name="viewport" content="width=1400, initial-scale=1.0">
+    <!-- Use responsive scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="google-site-verification" content="Zn5SE5OY2a8pjlxWB5DXE9zfUo5QjgPcYT4Rn33jnB4" />
     <meta name="author" content="Augustine Wangombe">
     <title>St.Charles Lwanga Catholic Youth</title>
@@ -152,13 +152,21 @@
             max-width: 1430px;
         }
 
-        /* ================= MOBILE = SAME LAYOUT ================= */
-        /* No scaling, exact desktop layout on mobile */
-        /* Users can scroll horizontally if needed */
+        /* ================= MOBILE FIX ================= */
         @media (max-width: 900px) {
             html, body {
-                width: 1400px;
+                width: 100%;
                 overflow-x: auto;
+            }
+
+            .wrapper {
+                transform: scale(0.95);
+                transform-origin: top left;
+            }
+
+            .icons {
+                top: 850px; /* Push icons down to prevent overlap */
+                right: 160px;
             }
         }
     </style>
