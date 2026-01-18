@@ -77,11 +77,13 @@ html {
     color: white;
     position: relative;
     padding: 10px;
+    min-height: 420px;
 }
-    .right::before{
+ .right::before{
     content:"";
     display:block;
-    height:420px;   /* same as lwanga height */
+    height:420px;
+    flex-shrink: 0;
 }
 
 
@@ -218,20 +220,6 @@ body{
     box-shadow: 0 4px 10px rgba(0,0,0,0.25);
 }
 
-/* ===== GOOGLE WEBVIEW TEXT OVERLAP FIX ===== */
-@supports (-webkit-touch-callout: none) {
-
-    .lwanga{
-        transform: translateZ(0);
-        z-index: 1;
-    }
-
-    .text{
-        position: relative;
-        z-index: 2;
-    }
-
-}
 
 
 
@@ -273,6 +261,7 @@ body{
 
 </body>
 </html>
+
 
 
 
