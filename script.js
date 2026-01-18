@@ -41,6 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const mpesaInput = document.getElementById("code");
   const submitBtn = document.getElementById("submitBtn");
 
+  // If submit button is missing, warn and stop
+  if (!submitBtn) {
+    console.error("Submit button with id='submitBtn' not found!");
+    return;
+  }
+
   // PARISH & LOCAL POSITIONS
   const parishPositions = [
     "Parish Coordinator", "Parish vice coordinator",
