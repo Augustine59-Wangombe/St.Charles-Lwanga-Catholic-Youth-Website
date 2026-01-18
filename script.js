@@ -121,6 +121,8 @@ document.addEventListener("DOMContentLoaded", () => {
         role: roleSelect.value,
         level: levelSelect.value || "",
         position: positionSelect.value || "",
+        smallChristianCommunity: document.getElementById("jumuia").value.trim(),
+        mpesaCode: document.getElementById("code").value.trim(),
         createdAt: serverTimestamp()
       };
 
@@ -141,5 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
 
 
