@@ -126,6 +126,9 @@ document.addEventListener("DOMContentLoaded", () => {
         createdAt: serverTimestamp()
       };
 
+      
+console.log("Form data to save:", formData);
+
       // Save to Firestore using addDoc (auto-generated ID)
       await addDoc(collection(db, "registrations"), formData);
 
@@ -143,6 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
 
 
 
