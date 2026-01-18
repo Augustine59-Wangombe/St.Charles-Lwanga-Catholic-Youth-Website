@@ -1,3 +1,4 @@
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { 
   getFirestore, 
@@ -9,6 +10,7 @@ import {
   serverTimestamp 
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
+// 🔹 Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyBw90VniQ8yVJiIPAAXiXO3qA_kpGDrz6w",
   authDomain: "registrations-5594b.firebaseapp.com",
@@ -22,14 +24,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-
-
 console.log("Leadership script loaded");
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // 🚫 GLOBAL GUARD — prevents double execution
-  if (window.__registerFormBound) return;
+  if (window.__registerFormBound) return; // prevent double binding
   window.__registerFormBound = true;
 
   // ELEMENTS
@@ -39,7 +38,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const positionSection = document.getElementById('positionSection');
   const levelSelect = document.getElementById('level');
   const positionSelect = document.getElementById('position');
+  const mpesaInput = document.getElementById("code");
+  const submitBtn = document.getElementById("submitBtn");
 
+  // PARISH & LOCAL POSITIONS
   const parishPositions = [
     "Parish Coordinator", "Parish vice coordinator",
     "Parish Secretary", "Parish vice secretary",
@@ -56,9 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
     "Local Disciplinarian"
   ];
 
-  // HIDE SECTIONS INITIALLY
+  // INITIAL STATE
   leadershipSection.style.display = 'none';
   positionSection.style.display = 'none';
+  submitBtn.disabled = true; // initially disable register button
 
   // ROLE CHANGE
   roleSelect.addEventListener('change', () => {
@@ -90,7 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
     positionSection.style.display = positions.length ? 'block' : 'none';
   });
 
-  // 🚀 SUBMIT HANDLING
+  // ENABLE/DISABLE SUBMIT BASED ON MPESA CODE
+  mpesaInput.addEventListener('input', () => {
+    submitBtn.disabled = mpesaInput.value.trim() === "";
+  });
+
+  // SUBMIT HANDLING
   let isSubmitting = false;
 
   form.addEventListener('submit', async (e) => {
@@ -100,8 +108,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const phone = document.getElementById("phone").value.trim();
+      const mpesaCode = mpesaInput.value.trim();
 
-      // ❌ Check if user already exists
+      // ✅ VALIDATE MPESA CODE
+      if (!mpesaCode) {
+        alert("❌ Please paste your MPESA transaction code before registering.");
+        mpesaInput.focus();
+        isSubmitting = false;
+        return;
+      }
+
+      // ❌ CHECK FOR DUPLICATE PHONE
       const q = query(collection(db, "registrations"), where("phone", "==", phone));
       const snapshot = await getDocs(q);
 
@@ -111,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Gather form values
+      // GATHER FORM DATA
       const formData = {
         name: document.getElementById("fullName").value.trim(),
         phone,
@@ -122,20 +139,20 @@ document.addEventListener("DOMContentLoaded", () => {
         level: levelSelect.value || "",
         position: positionSelect.value || "",
         smallChristianCommunity: document.getElementById("jumuia").value.trim(),
-        mpesaCode: document.getElementById("code").value.trim(),
+        mpesaCode, // validated
         createdAt: serverTimestamp()
       };
 
-      
-console.log("Form data to save:", formData);
+      console.log("Form data to save:", formData);
 
-      // Save to Firestore using addDoc (auto-generated ID)
+      // SAVE TO FIRESTORE
       await addDoc(collection(db, "registrations"), formData);
 
       alert("✅ Registration successful!");
       form.reset();
       leadershipSection.style.display = 'none';
       positionSection.style.display = 'none';
+      submitBtn.disabled = true; // disable again until next MPESA code
 
     } catch (err) {
       console.error("Firestore error:", err);
@@ -146,7 +163,3 @@ console.log("Form data to save:", formData);
   });
 
 });
-
-
-
-
