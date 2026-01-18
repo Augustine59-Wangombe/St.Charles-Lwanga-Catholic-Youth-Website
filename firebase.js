@@ -1,15 +1,13 @@
 
-import { serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { 
   getFirestore, 
   collection, 
   addDoc, 
-  doc, 
-  setDoc, 
   query, 
   where, 
-  getDocs 
+  getDocs, 
+  serverTimestamp 
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -21,6 +19,6 @@ const firebaseConfig = {
   appId: "1:811011800366:web:dd3c191aa20f8bc43a0ebf",
   measurementId: "G-YVRZ1WHD8R"
 };
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-export { db, collection, serverTimestamp, addDoc, query, where, getDocs };  
