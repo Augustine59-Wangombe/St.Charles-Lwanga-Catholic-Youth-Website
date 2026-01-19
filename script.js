@@ -49,33 +49,36 @@ document.addEventListener("DOMContentLoaded", () => {
     "Local organizing secretary","Local games captain","Local Disciplinarian"
   ];
 
-  // MPESA / AIRTEL SMS Regex
-  const mpesaPattern = /^[A-Z0-9]{10}\s+Confirmed\.\s*Ksh\d+(\.\d{2})?\s*sent\s+to\s+.+\s+\d{10}\s+on\s+\d{1,2}\/\d{1,2}\/\d{2}\s+at\s+\d{1,2}:\d{2}\s*(AM|PM)\.$/i;
+  // FLEXIBLE MPESA / AIRTEL SMS PATTERN
+  const mpesaPattern = /[A-Z0-9]{10}.*Confirmed\..*Ksh\d+(\.\d{2})?.*sent.*to.*\d{10}.*on.*\d{1,2}\/\d{1,2}\/\d{2}.*at.*\d{1,2}:\d{2}\s*(AM|PM)/i;
 
   // INITIAL STATE
   leadershipSection.style.display = "none";
   positionSection.style.display = "none";
   submitBtn.disabled = true;
 
+  let isSubmitting = false;
+
+  // VALIDATION FUNCTION
+  function validateMpesa() {
+    const text = mpesaInput.value.trim();
+    if (!text || !mpesaPattern.test(text)) {
+      mpesaInput.style.border = "2px solid red";
+      submitBtn.disabled = true;
+      return false;
+    }
+    mpesaInput.style.border = "2px solid green";
+    submitBtn.disabled = false;
+    return true;
+  }
+
   // BLOCK TYPING — Paste Only
-  mpesaInput.addEventListener("keypress", e => {
-    // Allow Ctrl+V / Command+V for paste
+  mpesaInput.addEventListener("keydown", e => {
     if (!(e.ctrlKey || e.metaKey)) e.preventDefault();
   });
 
-  // VALIDATE AFTER PASTE
-  mpesaInput.addEventListener("paste", () => {
-    setTimeout(() => {
-      const text = mpesaInput.value.trim();
-      if (!mpesaPattern.test(text)) {
-        alert("❌ Only valid MPESA/Airtel SMS allowed!");
-        mpesaInput.value = "";
-        submitBtn.disabled = true;
-      } else {
-        submitBtn.disabled = false;
-      }
-    }, 50);
-  });
+  // REAL-TIME VALIDATION ON INPUT (paste or typing)
+  mpesaInput.addEventListener("input", validateMpesa);
 
   // ROLE CHANGE
   roleSelect.addEventListener("change", () => {
@@ -103,8 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
     positionSection.style.display = list.length ? "block" : "none";
   });
 
-  // SUBMIT HANDLING
-  let isSubmitting = false;
+  // FORM SUBMIT HANDLER
   form.addEventListener("submit", async e => {
     e.preventDefault();
     if (isSubmitting) return;
@@ -113,17 +115,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const phone = document.getElementById("phone").value.trim();
     const mpesaCode = mpesaInput.value.trim();
 
-    // EMPTY FIELD CHECK
-    if (!mpesaCode) {
-      alert("❌ Please paste your MPESA transaction SMS before registering!");
-      mpesaInput.focus();
-      isSubmitting = false;
-      return;
-    }
-
-    // FORMAT VALIDATION
-    if (!mpesaPattern.test(mpesaCode)) {
-      alert("❌ Invalid MPESA/Airtel SMS format!");
+    // VALIDATE MPESA BEFORE SUBMIT
+    if (!validateMpesa()) {
+      alert("❌ Please paste your valid MPESA/Airtel SMS before registering!");
       mpesaInput.focus();
       isSubmitting = false;
       return;
@@ -134,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const snap = await getDocs(q);
     if (!snap.empty) {
       alert("❌ Phone already registered!");
+      mpesaInput.focus();
       isSubmitting = false;
       return;
     }
@@ -158,6 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
     submitBtn.disabled = true;
     leadershipSection.style.display = "none";
     positionSection.style.display = "none";
+    mpesaInput.style.border = "";
     isSubmitting = false;
   });
 
