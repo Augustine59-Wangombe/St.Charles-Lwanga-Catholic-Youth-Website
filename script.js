@@ -36,7 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const submitBtn = document.getElementById("submitBtn");
 
   // STRICT MPESA / AIRTEL SMS PATTERN
-  const mpesaPattern = /^[A-Z0-9]{10}\s+Confirmed\.\s*Ksh\d+(\.\d{2})?\s*sent\s+to\s+.+\s+\d{10}\s+on\s+\d{1,2}\/\d{1,2}\/\d{2}\s+at\s+\d{1,2}:\d{2}\s*(AM|PM)\./i;
+  const mpesaPattern = /^[A-Z0-9]{10}\s+Confirmed\.\s*Ksh\d+(\.\d{2})?\s*sent\s+to\s+.+\s+\d{10}\s+on\s+\d{1,2}\/\d{1,2}\/\d{2}\s+at\s+\d{1,2}:\d{2}\s*(AM|PM)\..+/i;
+
 
   // BLOCK TYPING
   mpesaInput.addEventListener("keydown", e => e.preventDefault());
@@ -140,3 +141,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
