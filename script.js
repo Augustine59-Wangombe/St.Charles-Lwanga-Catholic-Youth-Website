@@ -41,6 +41,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const mpesaInput = document.getElementById("code");
   const submitBtn = document.getElementById("submitBtn");
 
+
+// STRICT MPESA / AIRTEL SMS PATTERN
+const mpesaPattern = /^[A-Z0-9]{10}\s+Confirmed\.\s*Ksh\d+(\.\d{2})?\s*sent\s+to\s+.+\s+\d{10}\s+on\s+\d{1,2}\/\d{1,2}\/\d{2}\s+at\s+\d{1,2}:\d{2}\s*(AM|PM)\./i;
+
+// BLOCK TYPING — ALLOW ONLY PASTE
+mpesaInput.addEventListener("keydown", (e) => {
+  e.preventDefault();
+});
+
+// VALIDATE AFTER PASTE
+mpesaInput.addEventListener("paste", () => {
+  setTimeout(() => {
+    const text = mpesaInput.value.trim();
+
+    if (!mpesaPattern.test(text)) {
+      alert("❌ Only valid MPESA/Airtel transaction messages are allowed!");
+      mpesaInput.value = "";
+      submitBtn.disabled = true;
+    } else {
+      submitBtn.disabled = false;
+    }
+  }, 50);
+});
+
+  
+
   // If submit button is missing, warn and stop
   if (!submitBtn) {
     console.error("Submit button with id='submitBtn' not found!");
@@ -169,3 +195,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
