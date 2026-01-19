@@ -1,16 +1,16 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { 
-  getFirestore, 
-  collection, 
-  addDoc, 
-  query, 
-  where, 
-  getDocs, 
-  serverTimestamp 
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  query,
+  where,
+  getDocs,
+  serverTimestamp
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
-// 🔹 Firebase config
+// Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyBw90VniQ8yVJiIPAAXiXO3qA_kpGDrz6w",
   authDomain: "registrations-5594b.firebaseapp.com",
@@ -24,175 +24,119 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-console.log("Leadership script loaded");
-
 document.addEventListener("DOMContentLoaded", () => {
 
-  if (window.__registerFormBound) return; // prevent double binding
-  window.__registerFormBound = true;
-
-  // ELEMENTS
   const form = document.getElementById("registerForm");
-  const roleSelect = document.getElementById('role');
-  const leadershipSection = document.getElementById('leadershipSection');
-  const positionSection = document.getElementById('positionSection');
-  const levelSelect = document.getElementById('level');
-  const positionSelect = document.getElementById('position');
+  const roleSelect = document.getElementById("role");
+  const leadershipSection = document.getElementById("leadershipSection");
+  const positionSection = document.getElementById("positionSection");
+  const levelSelect = document.getElementById("level");
+  const positionSelect = document.getElementById("position");
   const mpesaInput = document.getElementById("code");
   const submitBtn = document.getElementById("submitBtn");
 
+  // STRICT MPESA / AIRTEL SMS PATTERN
+  const mpesaPattern = /^[A-Z0-9]{10}\s+Confirmed\.\s*Ksh\d+(\.\d{2})?\s*sent\s+to\s+.+\s+\d{10}\s+on\s+\d{1,2}\/\d{1,2}\/\d{2}\s+at\s+\d{1,2}:\d{2}\s*(AM|PM)\./i;
 
-// STRICT MPESA / AIRTEL SMS PATTERN
-const mpesaPattern = /^[A-Z0-9]{10}\s+Confirmed\.\s*Ksh\d+(\.\d{2})?\s*sent\s+to\s+.+\s+\d{10}\s+on\s+\d{1,2}\/\d{1,2}\/\d{2}\s+at\s+\d{1,2}:\d{2}\s*(AM|PM)\./i;
+  // BLOCK TYPING
+  mpesaInput.addEventListener("keydown", e => e.preventDefault());
 
-// BLOCK TYPING — ALLOW ONLY PASTE
-mpesaInput.addEventListener("keydown", (e) => {
-  e.preventDefault();
-});
+  // VALIDATE AFTER PASTE
+  mpesaInput.addEventListener("paste", () => {
+    setTimeout(() => {
+      const text = mpesaInput.value.trim();
+      submitBtn.disabled = !mpesaPattern.test(text);
+      if (submitBtn.disabled) {
+        alert("❌ Only valid MPESA/Airtel SMS allowed!");
+        mpesaInput.value = "";
+      }
+    }, 50);
+  });
 
-// VALIDATE AFTER PASTE
-mpesaInput.addEventListener("paste", () => {
-  setTimeout(() => {
-    const text = mpesaInput.value.trim();
+  leadershipSection.style.display = "none";
+  positionSection.style.display = "none";
+  submitBtn.disabled = true;
 
-    if (!mpesaPattern.test(text)) {
-      alert("❌ Only valid MPESA/Airtel transaction messages are allowed!");
-      mpesaInput.value = "";
-      submitBtn.disabled = true;
-    } else {
-      submitBtn.disabled = false;
-    }
-  }, 50);
-});
-
-  
-
-  // If submit button is missing, warn and stop
-  if (!submitBtn) {
-    console.error("Submit button with id='submitBtn' not found!");
-    return;
-  }
-
-  // PARISH & LOCAL POSITIONS
   const parishPositions = [
-    "Parish Coordinator", "Parish vice coordinator",
-    "Parish Secretary", "Parish vice secretary",
-    "Parish Treasurer", "Parish liturgist",
-    "Parish vice liturgist", "Parish organizing secretary",
-    "Parish games captain", "Parish Disciplinarian"
+    "Parish Coordinator","Parish vice coordinator","Parish Secretary",
+    "Parish vice secretary","Parish Treasurer","Parish liturgist",
+    "Parish vice liturgist","Parish organizing secretary",
+    "Parish games captain","Parish Disciplinarian"
   ];
 
   const localPositions = [
-    "Local Coordinator", "Local vice coordinator",
-    "Local Secretary", "Local vice secretary",
-    "Local liturgist", "Local vice liturgist",
-    "Local organizing secretary", "Local games captain",
-    "Local Disciplinarian"
+    "Local Coordinator","Local vice coordinator","Local Secretary",
+    "Local vice secretary","Local liturgist","Local vice liturgist",
+    "Local organizing secretary","Local games captain","Local Disciplinarian"
   ];
 
-  // INITIAL STATE
-  leadershipSection.style.display = 'none';
-  positionSection.style.display = 'none';
-  submitBtn.disabled = true; // initially disable register button
-
-  // ROLE CHANGE
-  roleSelect.addEventListener('change', () => {
-    if (roleSelect.value.toLowerCase() === 'leader') {
-      leadershipSection.style.display = 'block';
+  roleSelect.addEventListener("change", () => {
+    if (roleSelect.value.toLowerCase() === "leader") {
+      leadershipSection.style.display = "block";
     } else {
-      leadershipSection.style.display = 'none';
-      positionSection.style.display = 'none';
-      levelSelect.value = "";
-      positionSelect.innerHTML = '<option value="">-- Choose Position --</option>';
+      leadershipSection.style.display = "none";
+      positionSection.style.display = "none";
     }
   });
 
-  // LEVEL CHANGE
-  levelSelect.addEventListener('change', () => {
-    positionSelect.innerHTML = '<option value="">-- Choose Position --</option>';
-
-    const positions =
-      levelSelect.value === 'parish' ? parishPositions :
-      levelSelect.value === 'local' ? localPositions : [];
-
-    positions.forEach(pos => {
-      const option = document.createElement('option');
-      option.value = pos;
-      option.textContent = pos;
-      positionSelect.appendChild(option);
+  levelSelect.addEventListener("change", () => {
+    positionSelect.innerHTML = "<option value=''>-- Choose Position --</option>";
+    const list = levelSelect.value === "parish" ? parishPositions :
+                 levelSelect.value === "local" ? localPositions : [];
+    list.forEach(p => {
+      const opt = document.createElement("option");
+      opt.value = p;
+      opt.textContent = p;
+      positionSelect.appendChild(opt);
     });
-
-    positionSection.style.display = positions.length ? 'block' : 'none';
+    positionSection.style.display = list.length ? "block" : "none";
   });
 
-  // ENABLE/DISABLE SUBMIT BASED ON MPESA CODE
-  mpesaInput.addEventListener('input', () => {
-    submitBtn.disabled = mpesaInput.value.trim() === "";
-  });
-
-  // SUBMIT HANDLING
   let isSubmitting = false;
 
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener("submit", async e => {
     e.preventDefault();
     if (isSubmitting) return;
     isSubmitting = true;
 
-    try {
-      const phone = document.getElementById("phone").value.trim();
-      const mpesaCode = mpesaInput.value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const mpesaCode = mpesaInput.value.trim();
 
-      // ✅ VALIDATE MPESA CODE
-      if (!mpesaCode) {
-        alert("❌ Please paste your MPESA transaction code before registering.");
-        mpesaInput.focus();
-        isSubmitting = false;
-        return;
-      }
-
-      // ❌ CHECK FOR DUPLICATE PHONE
-      const q = query(collection(db, "registrations"), where("phone", "==", phone));
-      const snapshot = await getDocs(q);
-
-      if (!snapshot.empty) {
-        alert("❌ This phone number is already registered!");
-        isSubmitting = false;
-        return;
-      }
-
-      // GATHER FORM DATA
-      const formData = {
-        name: document.getElementById("fullName").value.trim(),
-        phone,
-        age: document.getElementById("Age").value,
-        gender: document.getElementById("Gender").value,
-        localChurch: document.getElementById("localChurch").value,
-        role: roleSelect.value,
-        level: levelSelect.value || "",
-        position: positionSelect.value || "",
-        smallChristianCommunity: document.getElementById("jumuia").value.trim(),
-        mpesaCode, // validated
-        createdAt: serverTimestamp()
-      };
-
-      console.log("Form data to save:", formData);
-
-      // SAVE TO FIRESTORE
-      await addDoc(collection(db, "registrations"), formData);
-
-      alert("✅ Registration successful!");
-      form.reset();
-      leadershipSection.style.display = 'none';
-      positionSection.style.display = 'none';
-      submitBtn.disabled = true; // disable again until next MPESA code
-
-    } catch (err) {
-      console.error("Firestore error:", err);
-      alert("❌ Error: " + err.message);
-    } finally {
+    // STRICT CHECK AGAIN
+    if (!mpesaPattern.test(mpesaCode)) {
+      alert("❌ Invalid MPESA/Airtel SMS format!");
       isSubmitting = false;
+      return;
     }
+
+    const q = query(collection(db, "registrations"), where("phone", "==", phone));
+    const snap = await getDocs(q);
+    if (!snap.empty) {
+      alert("❌ Phone already registered!");
+      isSubmitting = false;
+      return;
+    }
+
+    await addDoc(collection(db, "registrations"), {
+      name: document.getElementById("fullName").value.trim(),
+      phone,
+      age: document.getElementById("Age").value,
+      gender: document.getElementById("Gender").value,
+      localChurch: document.getElementById("localChurch").value,
+      role: roleSelect.value,
+      level: levelSelect.value || "",
+      position: positionSelect.value || "",
+      smallChristianCommunity: document.getElementById("jumuia").value.trim(),
+      mpesaCode,
+      createdAt: serverTimestamp()
+    });
+
+    alert("✅ Registration Successful!");
+    form.reset();
+    submitBtn.disabled = true;
+    leadershipSection.style.display = "none";
+    positionSection.style.display = "none";
+    isSubmitting = false;
   });
 
 });
-
