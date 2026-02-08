@@ -38,12 +38,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 .form-box {
   
 
+  border: 2px solid transparent;
+
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+background-image:
+  linear-gradient(#ffffff, #ffffff),
+  linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff);
+
+
+  background-size: 100% 100%, 200% 100%;
+  animation: gradient 5s ease infinite;
+
+
     
   max-width: 900px;
   margin: 0 auto;
   width:420px;
-  
-  background: #ffffff;
   margin-bottom: 30px;
   padding:40px;
   
@@ -56,7 +67,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   transform: translateY(40px);
   
 }
-  
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%, 0% 50%;
+  }
+  50% {
+    background-position: 0% 50%, 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%, 0% 50%;
+  }
+}
+
+ 
 
   
 .register {
@@ -377,6 +400,7 @@ in the field below.    <br>
 
 </body>
 </html>
+
 
 
 
