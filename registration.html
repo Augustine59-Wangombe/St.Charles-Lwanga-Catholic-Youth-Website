@@ -1,400 +1,176 @@
 
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-N8DWPRM5');</script>
-<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>ST.CHARLES LWANGA REGISTRATION</title>
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(
+                270deg,
+                #F2ABA9 0%,
+                #9FBAAB 21%,
+                #7BC0AC 30%,
+                #35CCAE 48%,
+                #5DD6BE 100%
+            );
+            background-attachment: fixed;
+        }
+
+        .img1 {
+            height: auto;
+            max-width: 1420px;
+            width: 100%;
+        }
+
+        .form-box {
+            position: relative;
+            width: 420px;
+            max-width: 900px;
+            margin: 0 auto 30px auto;
+            padding: 40px;
+            border-radius: 20px;
+            background: #fff; /* solid white form background */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            overflow: visible;
+            z-index: 0;
+            transform: translateY(40px);
+        }
+
+        /* Infinite animated gradient border */
+        .form-box::before {
+            content: '';
+            position: absolute;
+            top: -3px; left: -3px; bottom: -3px; right: -3px;
+            border-radius: 23px;
+            background: linear-gradient(145deg, #e81cff, #40c9ff, #00fff7, #e81cff);
+            background-size: 400% 400%;
+            z-index: -1;
+            animation: borderAnimation 5s ease infinite;
+        }
+
+        @keyframes borderAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .H2 {
+            text-align: center;
+            color: rgb(0, 174, 255);
+        }
+
+        .selec {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        .register {
+            width: 100%;
+            background: rgb(0, 174, 255);
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            animation: register 2s infinite;
+        }
+
+        @keyframes register {
+            80% {
+                box-shadow: inset 0 0 14px rgba(180, 0, 255, 0.8);
+            }
+        }
+
+        .glow {
+            color: rgb(18, 218, 18);
+            font-weight: 800;
+            font-size: 21px;
+        }
+
+        @media screen and (max-width: 480px) {
+            .form-box {
+                width: 90%;
+                top: -70px;
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8DWPRM5"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-  <style>
-  
-.img1{
- height: auto;
- max-width: 1420px;
- width: 100%;
-}
-
-  
-
-  
-.form-box {
-  position: relative;
-  width: 420px;
-  max-width: 900px;
-  margin: 0 auto 30px auto;
-  padding: 40px;
-  border-radius: 20px;
-  
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  transform: translateY(40px);
-  overflow: visible; /* Important to show border */
-  z-index: 0;
-}
-
-/* Animated gradient border */
-.form-box::before {
-  content: '';
-  position: absolute;
-  top: -3px; left: -3px; bottom: -3px; right: -3px; /* Border thickness */
-  background: linear-gradient(145deg, #e81cff, #40c9ff, #00fff7, #e81cff);
-  background-size: 400% 400%;
-  border-radius: 23px; /* slightly bigger than form-box */
-  z-index: -1; /* behind form content */
-  animation: borderAnimation 5s ease infinite;
-}
-
-/* Keyframes for moving gradient */
-@keyframes borderAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
- 
-
-  
-.register {
-  
-  width: 100%;
-  
-  background: rgb(0, 174, 255);
-  
-  color: rgb(255, 255, 255);
-  
-  border: none;
-  
-  padding: 12px;
-  
-  border-radius: 10px;
-  
-  font-size: 16px;
-  
-  cursor: pointer;
-  
-  transition: background-color 0.3s;
-  
-  animation: register 2s infinite;
-  
-}
-  
-
-  
-.selec {
-  
-  width: 100%;
-  
-  padding: 12px;
-  
-  margin: 10px 0;
-  
-  border: 1px solid #ccc;
-  
-  border-radius: 10px;
-  
-  font-size: 15px;
-  
-  outline: none;
-  
-  transition: border 0.3s;
-  
-}
-  
-
-  
-@media screen and (max-width: 480px) {
-  
-  .form-box {
-  
-    width: 90%;
-  
-    top: -70px;
-  
-    padding: 25px;
-  
-  }
-  
-}
-  
-
-  
-body { 
-  
-  margin: 0;
-  background: linear-gradient(
-  270deg,
-  #F2ABA9 0%,
-  #9FBAAB 21%,
-  #7BC0AC 30%,
-  #35CCAE 48%,
-  #5DD6BE 100%
-);
-background-attachment: fixed;
- 
-}
-  
-
-  
-.H2{
-  
-  text-align: center;
-  
-  color: rgb(0, 174, 255);
-  
-}
-  
-
-  
-  .slider {
-  
-      position: relative;
-  
-      width: 100%;
-  
-      max-width: 1200px;
-  
-      margin: 0 auto;
-  
-      overflow: hidden;
-  
-    }
-  
-
-  
-    .slide {
-  
-      position: absolute;
-  
-      width: 100%;
-  
-      opacity: 0;
-  
-      transition: opacity 1.5s ease-in-out;
-  
-    }
-  
-
-  
-    .slide.active {
-  
-      opacity: 1;
-  
-      position: relative;
-  
-    }
-  
-
-  
-    .slide img {
-  
-      width: 100%;
-  
-      height: auto;  
-  
-      display: block;
-  
-      object-fit: cover;
-  
-      transform: translateY(50px);
-  
-    }
-  
-
-  
-    .caption {
-  
-      position: absolute;
-  
-      bottom: 20px;
-  
-      left: 20px;
-  
-      padding: 10px 20px;
-  
-      background: rgba(0,0,0,0.6);
-  
-      color: white;
-  
-      font-size: 1.2rem;
-  
-      border-radius: 6px;
-    }
-  @keyframes register{
-    80% {
-      box-shadow: inset 0 0 14px rgba(180, 0, 255, 0.8);
-    }
-  }
-  
-
-@keyframes glow{
-    50%{
-        box-shadow: inset 0 0 24px rgb(145, 71, 145);
-    }
-}
-
-.glow{
-  color: rgb(18, 218, 18);
-  font: bold;
-  font-size: 21px;
-  font-weight: 800;
-}
-
-  
-</style>
-
-
-
-
     <img class="img1" src="images/Screenshot (80).png" alt="Picture1">
 
-
-
-  
-<div class="form-box" id="register-form">  <form id="registerForm"><h2 class="H2">Register <i class="fa-solid fa-circle-check"></i> </h2>
-
-<input id="fullName" type="text" placeholder="Full Name" class="selec" required>
-
-<input class="selec" id="phone" type="tel" placeholder="Phone Number"
-
-       pattern="[\+0-9]{10,15}" maxlength="15"
-
-       oninput="this.value = this.value.replace(/[^0-9+]/g, '')"
-
-       required />
-
-<input id="Age" type="number" placeholder="Enter your Age" class="selec" required>
-
-
-
-<label>Choose Local Church</label>
-
-<select name="Local Church" id="localChurch" class="selec" required>
-
-  <option value="St.Paul">St.Paul</option>
-
-  <option value="St.Lwanga">St.Lwanga</option>
-
-</select>
-
-<label>Role:</label>
-
-<select id="role" class="selec" required>
-
-  <option value="">-- Choose Role --</option>
-
-  <option value="member">Member</option>
-
-  <option value="leader">Leader</option>
-
-</select>
-
-
-
-<div id="leadershipSection" style="display:none;">
-
-  <label>Level of Leadership:</label>
-
-  <select id="level" class="selec">
-
-    <option value="">-- Choose Level --</option>
-
-    <option value="parish">Parish Level</option>
-
-    <option value="local">Local Level</option>
-
-  </select>
-
-</div>
-
-
-
-<div id="positionSection" style="display:none;">
-
-  <label>Leadership Position:</label>
-
-  <select id="position" class="selec">
-
-    <option value="">-- Choose Position --</option>
-
-  </select>
-
-</div>
-
-<label>Gender</label>
-
-<select name="Gender" id="Gender" class="selec" required>
-
-  <option value="Male">Male</option>
-
-  <option value="Female">Female</option>
-
-</select>
-
-<label>Youth Small Christian Community</label>
-<input id="jumuia" type="text" name="Small Christian Community" placeholder="Example St.Augustine" class="selec">
-
-<label class="glow"><center>Registration fee ksh.100  <i class="fa-solid fa-mobile-screen"></i></center>
-
-</label>
-<h2 style="color: rgb(12, 12, 95);"><center>Payment instructions    <i class="fa-solid fa-chalkboard-user"></i></center></h2>
-
-<p> 1. Make your payments either by <SPan style="color: red;">Airtel Money</SPan> or <span style="color: green;">Safaricom Mpesa.</span>
-
-<br>
-2. <span style="color: red;">Kindly note that</span> if you are a youth member from <span style="color: rgb(49, 34, 180);">St.Lwanga</span> send money to this mobile phone <b>0700367091</b>(Victor Kamotho St.Lwanga treasurer)
-   but if you are from <span style="color: rgb(15, 15, 141);">St.Paul</span> send money to this mobile phone <b>0727345614</b>(John Karuga St.Paul treasurer).
- <br>
-3.After <span style="color: rgb(13, 22 1, 13);">successful</span> mobile transactions, copy and paste the SMS code 
-in the field below.    <br>
-<span style="color: red;">Kindly note that the SMS transaction code that you paste in the field below will appear on our servers with your name and we shall confirm for transparency.</span>
-
-</p>
-<input id="code" class="selec" type="text" name="transactions" placeholder="Paste your transaction code eg. UAHBF4..">
- 
-
-<button class="register" type="submit" id="submitBtn">Register</button>
-
-  </form>
-
-
-
- <script type="module" src="script.js"></script>
-
-
-
-
-
-
-
-
-
-
-
+    <div class="form-box" id="register-form">
+        <form id="registerForm">
+            <h2 class="H2">Register <i class="fa-solid fa-circle-check"></i></h2>
+            <input id="fullName" type="text" placeholder="Full Name" class="selec" required>
+            <input class="selec" id="phone" type="tel" placeholder="Phone Number" pattern="[\+0-9]{10,15}" maxlength="15" oninput="this.value = this.value.replace(/[^0-9+]/g, '')" required>
+            <input id="Age" type="number" placeholder="Enter your Age" class="selec" required>
+
+            <label>Choose Local Church</label>
+            <select name="Local Church" id="localChurch" class="selec" required>
+                <option value="St.Paul">St.Paul</option>
+                <option value="St.Lwanga">St.Lwanga</option>
+            </select>
+
+            <label>Role:</label>
+            <select id="role" class="selec" required>
+                <option value="">-- Choose Role --</option>
+                <option value="member">Member</option>
+                <option value="leader">Leader</option>
+            </select>
+
+            <div id="leadershipSection" style="display:none;">
+                <label>Level of Leadership:</label>
+                <select id="level" class="selec">
+                    <option value="">-- Choose Level --</option>
+                    <option value="parish">Parish Level</option>
+                    <option value="local">Local Level</option>
+                </select>
+            </div>
+
+            <div id="positionSection" style="display:none;">
+                <label>Leadership Position:</label>
+                <select id="position" class="selec">
+                    <option value="">-- Choose Position --</option>
+                </select>
+            </div>
+
+            <label>Gender</label>
+            <select name="Gender" id="Gender" class="selec" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label>Youth Small Christian Community</label>
+            <input id="jumuia" type="text" name="Small Christian Community" placeholder="Example St.Augustine" class="selec">
+
+            <label class="glow"><center>Registration fee ksh.100  <i class="fa-solid fa-mobile-screen"></i></center></label>
+
+            <h2 style="color: rgb(12, 12, 95);"><center>Payment instructions <i class="fa-solid fa-chalkboard-user"></i></center></h2>
+
+            <p>
+                1. Make your payments either by <span style="color: red;">Airtel Money</span> or <span style="color: green;">Safaricom Mpesa</span>.<br>
+                2. <span style="color: red;">Kindly note that</span> if you are a youth member from <span style="color: rgb(49, 34, 180);">St.Lwanga</span> send money to <b>0700367091</b> but if from <span style="color: rgb(15, 15, 141);">St.Paul</span> send to <b>0727345614</b>.<br>
+                3. After successful mobile transactions, copy and paste the SMS code below.
+            </p>
+
+            <input id="code" class="selec" type="text" name="transactions" placeholder="Paste your transaction code eg. UAHBF4..">
+            <button class="register" type="submit" id="submitBtn">Register</button>
+        </form>
+    </div>
+
+    <script type="module" src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
