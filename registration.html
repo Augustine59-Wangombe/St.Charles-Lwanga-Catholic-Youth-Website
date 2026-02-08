@@ -4,7 +4,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,34 +43,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   margin: 0 auto 30px auto;
   padding: 40px;
   border-radius: 20px;
+  
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  overflow: visible; /* Allow border pseudo-element to show */
+  transform: translateY(40px);
+  overflow: visible; /* Important to show border */
   z-index: 0;
 }
 
-/* Animated border only */
+/* Animated gradient border */
 .form-box::before {
   content: '';
   position: absolute;
-  top: -3px; left: -3px; bottom: -3px; right: -3px; /* border thickness */
-  border-radius: 23px; /* slightly bigger than form-box */
+  top: -3px; left: -3px; bottom: -3px; right: -3px; /* Border thickness */
   background: linear-gradient(145deg, #e81cff, #40c9ff, #00fff7, #e81cff);
   background-size: 400% 400%;
+  border-radius: 23px; /* slightly bigger than form-box */
   z-index: -1; /* behind form content */
-  animation: borderAnimation 5s linear infinite;
-
-  /* Neon glow effect */
-  box-shadow: 0 0 20px #e81cff, 
-              0 0 40px #40c9ff, 
-              0 0 60px #00fff7, 
-              0 0 80px #e81cff;
+  animation: borderAnimation 5s ease infinite;
 }
 
+/* Keyframes for moving gradient */
 @keyframes borderAnimation {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+ 
 
   
 .register {
@@ -392,10 +390,6 @@ in the field below.    <br>
 
 </body>
 </html>
-
-
-
-
 
 
 
