@@ -36,47 +36,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   
 .form-box {
-  
-
-  border: 2px solid transparent;
-
-  background-clip: padding-box, border-box;
-  background-origin: padding-box, border-box;
-background-image:
-  linear-gradient(#ffffff, #ffffff),
-  linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff);
-
-
-  background-size: 100% 100%, 200% 100%;
-  animation: gradient 5s ease infinite;
-
-
-    
-  max-width: 900px;
-  margin: 0 auto;
-  width:420px;
-  margin-bottom: 30px;
-  padding:40px;
-  
-  border-radius: 20px;
-  
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  
   position: relative;
-  
+  width: 420px;
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+  padding: 40px;
+  border-radius: 20px;
+  background: #fff; /* Form background */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
   transform: translateY(40px);
-  
+  overflow: visible; /* Important to show border */
+  z-index: 0;
 }
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%, 0% 50%;
-  }
-  50% {
-    background-position: 0% 50%, 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%, 0% 50%;
-  }
+
+/* Animated gradient border */
+.form-box::before {
+  content: '';
+  position: absolute;
+  top: -3px; left: -3px; bottom: -3px; right: -3px; /* Border thickness */
+  background: linear-gradient(145deg, #e81cff, #40c9ff, #00fff7, #e81cff);
+  background-size: 400% 400%;
+  border-radius: 23px; /* slightly bigger than form-box */
+  z-index: -1; /* behind form content */
+  animation: borderAnimation 5s ease infinite;
+}
+
+/* Keyframes for moving gradient */
+@keyframes borderAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
  
@@ -400,6 +389,7 @@ in the field below.    <br>
 
 </body>
 </html>
+
 
 
 
