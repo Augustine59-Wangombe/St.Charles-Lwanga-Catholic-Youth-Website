@@ -41,6 +41,7 @@
         }
 
   }
+        
 .heading {
     text-align: center;
     color: blue;
@@ -73,7 +74,7 @@
 
         @keyframes register {
             80% {
-                box-shadow: inset 0 0 14px rgba(180, 0, 255, 0.8);
+                box-shadow: inset 0 0 24px white;
             }
         }
 
@@ -97,7 +98,7 @@
 
     <div class="form-box" id="register-form">
         <form id="registerForm">
-            <h2 class="heading">Register <i class="fa-solid fa-circle-check"></i></h2>
+            <h2 class="heading">Register Now <i class="fa-solid fa-circle-check"></i></h2>
             <input id="fullName" type="text" placeholder="Full Name" class="selec" required>
             <input class="selec" id="phone" type="tel" placeholder="Phone Number" pattern="[\+0-9]{10,15}" maxlength="15" oninput="this.value = this.value.replace(/[^0-9+]/g, '')" required>
             <input id="Age" type="number" placeholder="Enter your Age" class="selec" required>
@@ -158,6 +159,7 @@
     <script type="module" src="script.js"></script>
 </body>
 </html>
+
 
 
 
