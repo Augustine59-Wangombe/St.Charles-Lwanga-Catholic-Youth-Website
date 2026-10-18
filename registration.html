@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>ST.CHARLES LWANGA REGISTRATION</title>
+    <style>
+        :root {
+            --navy: #0d3b66;
+            --sky: #57bfe7;
+            --green: #1a9d65;
+            --white: #ffffff;
+            --text: #1d2e3d;
+            --muted: #53697d;
+            --shadow: 0 18px 35px rgba(13, 59, 102, 0.15);
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: linear-gradient(180deg, #edf9ff 0%, #d7f0ff 35%, #dff6ee 100%);
+            background-attachment: fixed;
+            color: var(--text);
+        }
+
+        .page-shell {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 26px 16px 50px;
+        }
+
+        .img1 {
+            display: block;
+            height: auto;
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto 26px;
+            border-radius: 26px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-box {
+            position: relative;
+            width: min(100%, 620px);
+            margin: 0 auto;
+            padding: 32px 26px;
+            border-radius: 28px;
+            background: rgba(255,255,255,0.82);
+            border: 1px solid rgba(255,255,255,0.85);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(4px);
+        }
+
+        h2 {
+            margin: 0 0 18px;
+            text-align: center;
+            color: var(--navy);
+            font-size: clamp(1.6rem, 3vw, 2.3rem);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 8px;
+            color: var(--navy);
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .selec {
+            width: 100%;
+            padding: 13px 14px;
+            margin: 0 0 14px;
+            border: 1px solid #cfe0f7;
+            border-radius: 12px;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.2s ease, box-shadow 0.2s ease;
+            background: #fdfefe;
+            color: var(--text);
+        }
+
+        .selec:focus {
+            border-color: var(--sky);
+            box-shadow: 0 0 0 4px rgba(87, 191, 231, 0.18);
+        }
+
+        .glow {
+            display: block;
+            margin: 12px 0 18px;
+            color: var(--green);
+            font-weight: 800;
+            font-size: 1.05rem;
+            text-align: center;
+        }
+
+        .register {
+            width: 100%;
+            background: linear-gradient(135deg, var(--green), #149c74);
+            color: var(--white);
+            border: none;
+            padding: 14px 18px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 12px 22px rgba(26, 157, 101, 0.2);
+        }
+
+        .register:hover {
+            transform: translateY(-2px);
+        }
+
+        p {
+            color: var(--muted);
+            line-height: 1.7;
+            margin: 10px 0 18px;
+        }
+
+        @media screen and (max-width: 480px) {
+            .page-shell { padding: 18px 12px 40px; }
+            .form-box { padding: 22px 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-shell">
+        <img class="img1" src="images/Screenshot (80).png" alt="Picture1">
+
+        <div class="form-box" id="register-form">
+            <form id="registerForm">
+                <h2><i class="fa-solid fa-circle-check"></i> Register Now</h2>
+                <input id="fullName" type="text" placeholder="Full Name" class="selec" required>
+                <input class="selec" id="phone" type="tel" placeholder="Phone Number" pattern="[\+0-9]{10,15}" maxlength="15" oninput="this.value = this.value.replace(/[^0-9+]/g, '')" required>
+                <input id="Age" type="number" placeholder="Enter your Age" class="selec" required>
+
+                <label>Choose Local Church</label>
+                <select name="Local Church" id="localChurch" class="selec" required>
+                    <option value="St.Paul">St.Paul</option>
+                    <option value="St.Lwanga">St.Lwanga</option>
+                </select>
+
+                <label>Role:</label>
+                <select id="role" class="selec" required>
+                    <option value="">-- Choose Role --</option>
+                    <option value="member">Member</option>
+                    <option value="leader">Leader</option>
+                </select>
+
+                <div id="leadershipSection" style="display:none;">
+                    <label>Level of Leadership:</label>
+                    <select id="level" class="selec">
+                        <option value="">-- Choose Level --</option>
+                        <option value="parish">Parish Level</option>
+                        <option value="local">Local Level</option>
+                    </select>
+                </div>
+
+                <div id="positionSection" style="display:none;">
+                    <label>Leadership Position:</label>
+                    <select id="position" class="selec">
+                        <option value="">-- Choose Position --</option>
+                    </select>
+                </div>
+
+                <label>Gender</label>
+                <select name="Gender" id="Gender" class="selec" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+
+                <label>Youth Small Christian Community</label>
+                <input id="jumuia" type="text" name="Small Christian Community" placeholder="Example St.Augustine" class="selec">
+
+                <label class="glow"><i class="fa-solid fa-mobile-screen"></i> Registration fee ksh.100</label>
+
+                <h2><i class="fa-solid fa-chalkboard-user"></i> Payment instructions</h2>
+
+                <p>
+                    1. Make your payments either by <span style="color: #d63b3b; font-weight: 700;">Airtel Money</span> or <span style="color: #1c8b4c; font-weight: 700;">Safaricom Mpesa</span>.<br>
+                    2. <span style="color: #d63b3b; font-weight: 700;">Kindly note that</span> if you are a youth member from <span style="color: #102b70; font-weight: 700;">St.Lwanga</span> send money to <b>0700367091</b> but if from <span style="color: #102b70; font-weight: 700;">St.Paul</span> send to <b>0727345614</b>.<br>
+                    3. After successful mobile transactions, copy and paste the SMS code below.
+                </p>
+
+                <input id="code" class="selec" type="text" name="transactions" placeholder="Paste your transaction code eg. UAHBF4.. here">
+                <button class="register" type="submit" id="submitBtn">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N8DWPRM5');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>St. Charles Lwanga Registration Portal</title>
+
+<style>
+:root {
+    --navy: #0d3b66;
+    --navy-2: #1a5b8a;
+    --sky: #57bfe7;
+    --white: #ffffff;
+    --text: #16314b;
+    --shadow: 0 20px 38px rgba(13, 59, 102, 0.16);
+    --green: #173c34;
+    --gold: #d9ae61;
+    --line: #e5e9e3;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    min-height: 100vh;
+    background: linear-gradient(180deg, #ebf8ff 0%, #d6f0ff 32%, #d8f3eb 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 24px 16px 50px;
+    color: var(--text);
+}
+
+.site-header{
+    width: min(1200px, 100%);
+    margin: 0 auto 24px;
+    padding: 0 20px;
+    border-radius: 14px;
+    background: rgba(255,255,255,.96);
+    box-shadow: 0 8px 24px rgba(13,59,102,.08);
+}
+
+.nav{
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.brand{
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--green);
+    font-weight: 750;
+    line-height: 1.15;
+    text-decoration: none;
+}
+
+.brand-mark{
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    background: var(--green);
+    color: #f6d99c;
+    font-family: Georgia, serif;
+    font-size: 1.25rem;
+}
+
+.brand small{
+    display: block;
+    margin-top: 4px;
+    color: #64716c;
+    font-size: .65rem;
+    font-weight: 650;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+}
+
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{color:#40504a;font-size:.9rem;font-weight:600;text-decoration:none}
+.nav-links a:hover{color:var(--green)}
+.nav-links .nav-cta{padding:10px 16px;border-radius:8px;background:var(--green);color:#fff}
+.nav-links .nav-cta:hover{background:#24564b;color:#fff}
+.nav-toggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--green);cursor:pointer}
+.nav-toggle svg{width:22px;height:22px}
+
+.img1{
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    margin-bottom: 30px;
+    border-radius: 26px;
+    box-shadow: var(--shadow);
+    border: 5px solid rgba(255,255,255,0.65);
+}
+
+.container{
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.left{
+    flex: 1 1 420px;
+    color: var(--white);
+    background: linear-gradient(135deg, #0d3b66, #1f6fb3);
+    border-radius: 30px;
+    padding: 28px 24px;
+    box-shadow: var(--shadow);
+}
+
+.left h1{
+    font-size: clamp(2.1rem, 5vw, 5rem);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    line-height: 1.08;
+    text-transform: uppercase;
+}
+
+.left p{
+    max-width: 430px;
+    margin-top: 18px;
+    color: rgba(255,255,255,.82);
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+.right{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    flex: 1 1 500px;
+    align-items: stretch;
+}
+
+.registration-card {
+    min-width: 0;
+    min-height: 300px;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    overflow: hidden;
+    border: 1px solid rgba(13,59,102,.1);
+    border-radius: 18px;
+    background: var(--white);
+    text-decoration: none;
+    color: var(--text);
+    box-shadow: 0 12px 28px rgba(13,59,102,.1);
+    transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.registration-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(13,59,102,.28);
+    box-shadow: 0 20px 36px rgba(13,59,102,.18);
+}
+
+.registration-card img{
+    width: 100%;
+    height: 100%;
+    min-height: 205px;
+    display: block;
+    padding: 14px;
+    object-fit: contain;
+    background: #f7fafc;
+}
+
+.registration-card-copy{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 17px 18px;
+    border-top: 1px solid #edf1f4;
+}
+
+.registration-card-copy strong{display:block;color:var(--navy);font-size:1rem;line-height:1.25}
+.registration-card-copy small{display:block;margin-top:4px;color:#647487;font-size:.79rem;line-height:1.4}
+.registration-arrow{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#eaf5fb;color:var(--navy);font-size:1.2rem;transition:transform .2s,background .2s}
+.registration-card:hover .registration-arrow{transform:translateX(3px);background:#d7effb}
+
+.registration-card:focus-visible{
+    outline: 3px solid #d9ae61;
+    outline-offset: 4px;
+}
+
+@media(max-width: 900px){
+    .container{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .left {
+        width: 100%;
+    }
+
+    .right {
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media(max-width:640px){
+    body{padding:14px 12px 36px}
+    .site-header{margin-bottom:18px;padding:0 14px}
+    .nav{min-height:66px;flex-wrap:wrap;gap:10px;padding:10px 0}
+    .brand-mark{width:39px;height:39px}
+    .nav-toggle{display:inline-flex}
+    .nav-links{display:none;width:100%;align-items:stretch;flex-direction:column;gap:0;padding:6px 0 4px}
+    .nav-links.is-open{display:flex}
+    .nav-links a{display:block;padding:12px 8px;font-size:.9rem}
+    .nav-links .nav-cta{margin-top:6px;padding:11px 14px;text-align:center}
+    .img1{margin-bottom:20px;border-radius:18px;border-width:3px}
+    .right{grid-template-columns:1fr;gap:14px}
+    .registration-card{min-height:275px}
+}
+
+:focus-visible{outline:3px solid #e6bd70;outline-offset:4px}
+</style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8DWPRM5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="index.html" aria-label="St. Charles Lwanga Catholic Youth home">
+            <span class="brand-mark" aria-hidden="true">✝</span>
+            <span>St. Charles Lwanga<small>Catholic Youth</small></span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-links" aria-label="Open navigation menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+        <ul class="nav-links" id="primary-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a class="nav-cta" href="registrationportal.html" aria-current="page">Registration</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+<img class="img1" src="images/Screenshot (100).png" alt="Main Picture">
+
+<div class="container">
+    <div class="left">
+        <h1>Choose your registration</h1>
+        <p>Select the registration that fits you. Tap a card to continue to the secure online form.</p>
+    </div>
+
+    <div class="right">
+        <a class="registration-card" href="registration.html" aria-label="Continue to youth registration">
+            <img src="images/Screenshot (80).png" alt="Youth registration form preview">
+            <span class="registration-card-copy"><span><strong>Youth Registration</strong><small>Register as a member of the youth community</small></span><span class="registration-arrow" aria-hidden="true">→</span></span>
+        </a>
+
+        <a class="registration-card" href="https://augustine59-wangombe.github.io/Night-Vigil-Online-Registration-Youth-System/" aria-label="Continue to night vigil registration">
+            <img src="images/Picture1.png" alt="Night vigil registration form preview">
+            <span class="registration-card-copy"><span><strong>Night Vigil Registration</strong><small>Sign up for the upcoming night vigil</small></span><span class="registration-arrow" aria-hidden="true">→</span></span>
+        </a>
+    </div>
+
+</div>
+</main>
+
+<script>
+    const menuButton = document.querySelector('.nav-toggle');
+    const menu = document.querySelector('#primary-links');
+
+    function closeMenu() {
+        menu.classList.remove('is-open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.setAttribute('aria-label', 'Open navigation menu');
+    }
+
+    menuButton.addEventListener('click', () => {
+        const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+        menu.classList.toggle('is-open', !isOpen);
+        menuButton.setAttribute('aria-expanded', String(!isOpen));
+        menuButton.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
+    });
+
+    menu.addEventListener('click', (event) => {
+        if (event.target.closest('a')) closeMenu();
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeMenu();
+    });
+</script>
+
+</body>
+</html>
+
+
